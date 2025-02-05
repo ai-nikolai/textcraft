@@ -8,12 +8,12 @@ from dataclasses import dataclass
 from textcraft.crafting_tree import CraftingTree
 from typing import List
 import sys
-
-
+# to access data locally
+import importlib.resources
 
 class TextCraft(gym.Env[str, str]):
 
-    def __init__(self, minecraft_dir):
+    def __init__(self, minecraft_dir=importlib.resources.path('textcraft','data')):
         self.inventory = {}
         self.action_regexes = {
             "craft": r"craft (.*) using (.*)",
@@ -170,7 +170,7 @@ class TextCraft(gym.Env[str, str]):
 
 
 def main():
-    env = TextCraft(minecraft_dir="environments/textcraft/")
+    env = TextCraft()
     obs, info = env.reset(seed=42)
     print(obs)
     action = input("> ")
