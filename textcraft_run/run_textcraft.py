@@ -28,7 +28,7 @@ model_name="gpt-3.5-turbo-instruct"
 
 
 
-# API_KEY = ...
+API_KEY = os.environ["OPENAI_API_KEY"]
 # HF_auth_token = ...
 # cache_dir=...
 
@@ -283,13 +283,15 @@ import ast
 from textcraft.env import TextCraft # need TextCraft folder from Adapt
 
 benchmark = 'textcraft'
-env = TextCraft(minecraft_dir="textcraft/")
+# env = TextCraft(minecraft_dir="textcraft/")
+env = TextCraft()
+
 
 stop_tokens_=['=>','#EN']
 close_token='<=\n\n'
 max_new_tokens_task = 1000
 start_ = '#START#'
-test_set_size = 200
+test_set_size = 1 #200
 t_max = 200
 
 # prompt_file='prompt.json'
