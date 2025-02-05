@@ -294,7 +294,7 @@ start_ = '#START#'
 test_set_size = 1 #200
 t_max = 200
 
-# prompt_file='prompt.json'
+prompt_file='prompt.json'
 prompt_d = json.load(open(prompt_file, 'r'))
 prompt_d.keys()
 prompt0_examples=prompt_d['thread_textcraft']
@@ -516,7 +516,7 @@ reward_list=[]
 for test_idx in range(test_set_size):
     if benchmark == 'textcraft':
         del(env)
-        env = TextCraft(minecraft_dir="textcraft/")
+        env = TextCraft()
         ob, info = env.reset(seed=test_idx)
         ob = ob.replace('\n\n','\n')
         ob_task=ob.split('Goal: ')[-1].strip()
