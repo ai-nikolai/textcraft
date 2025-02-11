@@ -2,6 +2,27 @@
 
 This is the Pypi implementation and packaging of the environment Textcraft introduced in the paper ADaPT.
 
+## Getting started:
+The package comes with all the data already, so usage is super easy.
+
+1. Installation:
+```bash
+pip3 install textcraft
+```
+
+2. Usage:
+```python
+from textcraft import TextCraft
+
+
+env = TextCraft()
+obs, info = env.reset(seed=42)
+print(obs)
+action = input("> ")
+(observation, reward, terminated, truncated, info) = env.step(action)
+print(observation, reward, sep="\n")
+```
+
 
 ## Acknowledgements
 We thank the authors and contributors of [ADaPT](https://allenai.github.io/adaptllm/) for their public code release. 
